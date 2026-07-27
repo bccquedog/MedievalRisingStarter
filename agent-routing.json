@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "default_implementation_owner": "codex",
+  "states": [
+    "BACKLOG",
+    "PRODUCT_CLARIFICATION",
+    "ARCHITECTURE_REVIEW",
+    "READY_FOR_IMPLEMENTATION",
+    "IMPLEMENTING",
+    "CODE_REVIEW",
+    "PLAYABLE_BUILD",
+    "VISUAL_QA",
+    "INTEGRATION_FIXES",
+    "HUMAN_ACCEPTANCE",
+    "MERGE_READY",
+    "DONE"
+  ],
+  "implementation_states": [
+    "READY_FOR_IMPLEMENTATION",
+    "IMPLEMENTING",
+    "INTEGRATION_FIXES"
+  ],
+  "agents": {
+    "human": {
+      "roles": ["product_owner", "acceptance", "release_authority"]
+    },
+    "codex": {
+      "roles": ["implementation", "tests", "integration", "build"]
+    },
+    "claude": {
+      "roles": ["architecture_review", "code_review", "failure_analysis"],
+      "default_read_only": true
+    },
+    "kimi": {
+      "roles": ["visual_qa", "usability_review"],
+      "default_read_only": true
+    },
+    "glm": {
+      "roles": ["staged_content", "fixtures", "documentation_drafts"],
+      "production_write_allowed": false
+    }
+  },
+  "architecture_review_triggers": [
+    "crosses_two_or_more_system_families",
+    "changes_stable_ids",
+    "changes_time_or_tick_order",
+    "changes_rng_or_entity_lifetime",
+    "changes_state_ownership",
+    "changes_save_or_content_schema",
+    "changes_public_modding_contract",
+    "introduces_threading_jobs_package_or_service",
+    "touches_economy_social_graph_npc_schedule_succession_law_or_politics_architecture",
+    "same_defect_failed_twice",
+    "estimate_exceeds_three_engineering_days_without_decomposition"
+  ],
+  "visual_qa_triggers": [
+    "ui",
+    "camera",
+    "animation",
+    "sprite_sorting",
+    "scene_composition",
+    "input_feedback",
+    "resolution_scaling",
+    "visual_accessibility"
+  ],
+  "glm_entry_requirements": [
+    "accepted_versioned_schema",
+    "three_approved_examples",
+    "reserved_id_range",
+    "enum_numeric_and_foreign_key_constraints",
+    "staging_only_output_path"
+  ],
+  "exclusive_global_paths": [
+    "ProjectSettings/",
+    "Packages/",
+    "Assets/Game/Settings/",
+    "Assets/Game/Content/Schemas/",
+    "Assets/Game/Scripts/Infrastructure/Persistence/SaveGameDto.cs"
+  ],
+  "single_writer_extensions": [
+    ".unity",
+    ".prefab",
+    ".controller",
+    ".inputactions",
+    ".spriteatlas"
+  ],
+  "required_transfer_fields": [
+    "base_commit",
+    "current_commit",
+    "branch",
+    "current_state",
+    "requested_state",
+    "ticket",
+    "allowed_paths",
+    "tests",
+    "requested_next_action"
+  ]
+}
+

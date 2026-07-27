@@ -1,0 +1,17 @@
+name: Static validation
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  repository-contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 tools/validate_repo.py
+      - run: python3 tools/validate_agent_task.py tasks/examples/MR-001-time-engine.json

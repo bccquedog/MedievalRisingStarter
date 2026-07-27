@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://medievalrising.game/schemas/origin-profile.schema.json",
+  "title": "Origin Profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "id", "displayNameKey", "startingMoneyMinorUnits", "skillModifiers"],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^origin\\.[a-z0-9_]+$"
+    },
+    "displayNameKey": {
+      "type": "string",
+      "minLength": 1
+    },
+    "startingMoneyMinorUnits": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100000
+    },
+    "skillModifiers": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": -10,
+        "maximum": 10
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "lane_id": "MR-LANE-000",
+  "base_commit": "replace-me",
+  "integration_owner": "codex",
+  "shared_contracts": [],
+  "lanes": [
+    {
+      "ticket": "MR-000",
+      "owner": "codex",
+      "branch": "feature/MR-000-example",
+      "exclusive_paths": [
+        "Assets/Game/Scripts/Domain/Example/"
+      ]
+    }
+  ],
+  "merge_order": [
+    "MR-000"
+  ]
+}
+

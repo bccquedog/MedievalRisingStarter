@@ -1,0 +1,11 @@
+{
+  "name": "MedievalRising.Editor",
+  "rootNamespace": "MedievalRising.Editor",
+  "references": [
+    "MedievalRising.Presentation"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "autoReferenced": true
+}

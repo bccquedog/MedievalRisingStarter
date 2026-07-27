@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "ticket": "MR-001",
+  "title": "Deterministic time engine foundation",
+  "workflow_state": "DONE",
+  "implementation_owner": "codex",
+  "base_commit": "starter-scaffold",
+  "branch": "feature/MR-001-time-engine",
+  "architecture_review": {
+    "required": true,
+    "status": "accepted",
+    "adr": "docs/adr/ADR-002-time.md"
+  },
+  "visual_qa": {
+    "required": false,
+    "status": "not_required"
+  },
+  "allowed_paths": [
+    "Assets/Game/Scripts/Domain/Time/",
+    "Assets/Game/Scripts/Domain/Simulation/",
+    "Assets/Game/Tests/EditMode/"
+  ],
+  "exclusive_locks": [],
+  "player_outcome": "Game time advances consistently regardless of render frame rate.",
+  "acceptance_criteria": [
+    "Time is stored as integer game minutes.",
+    "Due systems run by phase and explicit order.",
+    "Equal starting state and advance duration produce equal state."
+  ],
+  "required_tests": [
+    "GameInstantTests",
+    "SimulationEngineTests"
+  ],
+  "save_impact": "additive schema version 1",
+  "next_agent": "human",
+  "requested_next_state": "DONE"
+}
+

@@ -1,0 +1,11 @@
+{
+  "name": "MedievalRising.Presentation",
+  "rootNamespace": "MedievalRising.Presentation",
+  "references": [
+    "MedievalRising.Domain",
+    "MedievalRising.Application",
+    "MedievalRising.Infrastructure",
+    "Unity.InputSystem"
+  ],
+  "autoReferenced": true
+}

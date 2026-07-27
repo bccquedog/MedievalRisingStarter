@@ -1,0 +1,9 @@
+{
+  "name": "MedievalRising.Application",
+  "rootNamespace": "MedievalRising.Application",
+  "references": [
+    "MedievalRising.Domain"
+  ],
+  "autoReferenced": true,
+  "noEngineReferences": true
+}
