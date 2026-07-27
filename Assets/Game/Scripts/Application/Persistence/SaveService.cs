@@ -24,6 +24,12 @@ namespace MedievalRising.Application.Persistence
             return _repository.Load(slotId);
         }
 
+        public bool Exists(string slotId)
+        {
+            ValidateSlot(slotId);
+            return _repository.Exists(slotId);
+        }
+
         private static void ValidateSlot(string slotId)
         {
             if (string.IsNullOrWhiteSpace(slotId))

@@ -12,7 +12,7 @@ namespace MedievalRising.Infrastructure.Persistence
 
         public LocalJsonSaveRepository(string root = null)
         {
-            _root = root ?? Path.Combine(Application.persistentDataPath, "Saves");
+            _root = root ?? Path.Combine(UnityEngine.Application.persistentDataPath, "Saves");
         }
 
         public bool Exists(string slotId) => File.Exists(GetPath(slotId));

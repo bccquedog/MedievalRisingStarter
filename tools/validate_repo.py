@@ -9,6 +9,7 @@ import sys
 
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
+GENERATED_DIRS = {"Library", "Temp", "Obj", "Build", "Builds", "Logs", "UserSettings"}
 REQUIRED = [
     "AGENTS.md",
     "agent-routing.json",
@@ -26,6 +27,14 @@ def fail(message: str, failures: list[str]) -> None:
     failures.append(message)
 
 
+def source_files(pattern: str):
+    for path in ROOT.rglob(pattern):
+        relative_parts = path.relative_to(ROOT).parts
+        if any(part in GENERATED_DIRS for part in relative_parts):
+            continue
+        yield path
+
+
 def main() -> int:
     failures: list[str] = []
 
@@ -33,7 +42,7 @@ def main() -> int:
         if not (ROOT / relative).is_file():
             fail(f"missing required file: {relative}", failures)
 
-    for path in ROOT.rglob("*.json"):
+    for path in source_files("*.json"):
         try:
             json.loads(path.read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError) as error:
@@ -81,8 +90,8 @@ def main() -> int:
             print(f"- {item}")
         return 1
 
-    json_count = sum(1 for _ in ROOT.rglob("*.json"))
-    cs_count = sum(1 for _ in ROOT.rglob("*.cs"))
+    json_count = sum(1 for _ in source_files("*.json"))
+    cs_count = sum(1 for _ in source_files("*.cs"))
     print(f"STATIC VALIDATION: PASS ({json_count} JSON, {cs_count} C# files)")
     print("Unity compilation and Unity Test Framework execution are separate required gates.")
     return 0
