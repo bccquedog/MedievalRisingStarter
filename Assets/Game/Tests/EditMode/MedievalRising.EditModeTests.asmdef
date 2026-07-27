@@ -4,7 +4,8 @@
   "references": [
     "MedievalRising.Domain",
     "MedievalRising.Application",
-    "MedievalRising.Infrastructure"
+    "MedievalRising.Infrastructure",
+    "MedievalRising.Presentation"
   ],
   "includePlatforms": [
     "Editor"

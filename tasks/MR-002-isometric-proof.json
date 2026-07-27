@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "ticket": "MR-002",
+  "title": "Isometric movement and starter village proof",
+  "workflow_state": "READY_FOR_IMPLEMENTATION",
+  "implementation_owner": "codex",
+  "base_commit": "c77e8e5",
+  "branch": "main",
+  "architecture_review": {
+    "required": false,
+    "status": "not_required",
+    "adr": "docs/ARCHITECTURE.md"
+  },
+  "visual_qa": {
+    "required": true,
+    "status": "pending",
+    "triggers": [
+      "camera",
+      "sprite_sorting",
+      "scene_composition",
+      "input_feedback"
+    ]
+  },
+  "allowed_paths": [
+    "tasks/MR-002-isometric-proof.json",
+    "Assets/Game/Editor/",
+    "Assets/Game/Scenes/",
+    "Assets/Game/Scripts/Presentation/",
+    "Assets/Game/Tests/EditMode/"
+  ],
+  "exclusive_locks": [
+    "Assets/Game/Scenes/StarterVillage.unity"
+  ],
+  "player_outcome": "A controllable founder can move through a readable isometric village test corner while the camera follows within bounds.",
+  "acceptance_criteria": [
+    "StarterVillage contains an isometric-looking test map with ground, blocking props, roof/door markers, and a safe spawn.",
+    "Player movement resolves against simple world obstacles instead of walking through blocking tiles.",
+    "Camera follows the player while clamping to configured village bounds.",
+    "Sprite sorting is deterministic by vertical position so lower objects render in front of higher objects.",
+    "EditMode tests cover movement collision, camera clamping, and sorting-order calculation."
+  ],
+  "required_tests": [
+    "IsometricMovementTests",
+    "IsometricCameraTests",
+    "SpriteSortingTests",
+    "Existing EditMode suite"
+  ],
+  "save_impact": "none",
+  "next_agent": "kimi",
+  "requested_next_state": "VISUAL_QA"
+}
