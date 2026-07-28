@@ -9,7 +9,8 @@ namespace MedievalRising.Presentation
         [SerializeField] private GameBootstrap bootstrap;
         [SerializeField] private Transform player;
 
-        private DailyLifeInteraction2D[] _interactions;
+        private DailyLifeInteraction2D[] _dailyInteractions;
+        private SocialTalkInteraction2D[] _socialInteractions;
 
         public string LastActionStatus { get; private set; } = "No actions yet";
 
@@ -28,7 +29,8 @@ namespace MedievalRising.Presentation
                 bootstrap = FindFirstObjectByType<GameBootstrap>();
             }
 
-            _interactions = FindObjectsByType<DailyLifeInteraction2D>(FindObjectsSortMode.None);
+            _dailyInteractions = FindObjectsByType<DailyLifeInteraction2D>(FindObjectsSortMode.None);
+            _socialInteractions = FindObjectsByType<SocialTalkInteraction2D>(FindObjectsSortMode.None);
         }
 
         private void Update()
@@ -38,35 +40,84 @@ namespace MedievalRising.Presentation
                 return;
             }
 
-            DailyLifeInteraction2D nearest = FindNearestInRange();
-            NearestActionHint = nearest != null
-                ? $"E: {nearest.Action}"
-                : string.Empty;
+            Vector2 playerPosition = player.position;
+            DailyLifeInteraction2D nearestDaily = FindNearestDaily(playerPosition);
+            SocialTalkInteraction2D nearestSocial = FindNearestSocial(playerPosition);
+
+            float dailyDistance = nearestDaily == null
+                ? float.MaxValue
+                : ((Vector2)nearestDaily.transform.position - playerPosition).magnitude;
+            float socialDistance = nearestSocial == null
+                ? float.MaxValue
+                : ((Vector2)nearestSocial.transform.position - playerPosition).magnitude;
+
+            bool preferSocial = socialDistance < dailyDistance;
+            NearestActionHint = preferSocial && nearestSocial != null
+                ? "E: Talk"
+                : nearestDaily != null
+                    ? $"E: {nearestDaily.Action}"
+                    : string.Empty;
 
             Keyboard keyboard = Keyboard.current;
-            if (keyboard == null || nearest == null || !keyboard.eKey.wasPressedThisFrame)
+            if (keyboard == null || !keyboard.eKey.wasPressedThisFrame)
             {
                 return;
             }
 
-            DailyLifeActionResult result = nearest.Perform(new DailyLifeService(bootstrap.Session));
-            LastActionStatus = result.Message;
+            if (preferSocial && nearestSocial != null)
+            {
+                SocialTalkResult talk = nearestSocial.Perform(new SocialService(bootstrap.Session));
+                LastActionStatus = talk.Message;
+                return;
+            }
+
+            if (nearestDaily != null)
+            {
+                DailyLifeActionResult result = nearestDaily.Perform(new DailyLifeService(bootstrap.Session));
+                LastActionStatus = result.Message;
+            }
         }
 
-        private DailyLifeInteraction2D FindNearestInRange()
+        private DailyLifeInteraction2D FindNearestDaily(Vector2 playerPosition)
         {
-            if (_interactions == null)
+            if (_dailyInteractions == null)
             {
                 return null;
             }
 
             DailyLifeInteraction2D nearest = null;
             float nearestDistance = float.MaxValue;
-            Vector2 playerPosition = player.position;
-
-            for (int index = 0; index < _interactions.Length; index++)
+            for (int index = 0; index < _dailyInteractions.Length; index++)
             {
-                DailyLifeInteraction2D interaction = _interactions[index];
+                DailyLifeInteraction2D interaction = _dailyInteractions[index];
+                if (interaction == null || !interaction.isActiveAndEnabled || !interaction.IsPlayerInRange(playerPosition))
+                {
+                    continue;
+                }
+
+                float distance = ((Vector2)interaction.transform.position - playerPosition).magnitude;
+                if (distance < nearestDistance)
+                {
+                    nearestDistance = distance;
+                    nearest = interaction;
+                }
+            }
+
+            return nearest;
+        }
+
+        private SocialTalkInteraction2D FindNearestSocial(Vector2 playerPosition)
+        {
+            if (_socialInteractions == null)
+            {
+                return null;
+            }
+
+            SocialTalkInteraction2D nearest = null;
+            float nearestDistance = float.MaxValue;
+            for (int index = 0; index < _socialInteractions.Length; index++)
+            {
+                SocialTalkInteraction2D interaction = _socialInteractions[index];
                 if (interaction == null || !interaction.isActiveAndEnabled || !interaction.IsPlayerInRange(playerPosition))
                 {
                     continue;

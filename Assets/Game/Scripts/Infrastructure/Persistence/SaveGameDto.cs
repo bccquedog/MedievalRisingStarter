@@ -6,11 +6,12 @@ namespace MedievalRising.Infrastructure.Persistence
     [Serializable]
     public sealed class SaveGameDto
     {
-        public int schemaVersion = 1;
+        public int schemaVersion = 2;
         public long totalMinutes;
         public ulong randomState;
         public ulong playerCharacterId;
         public List<CharacterDto> characters = new List<CharacterDto>();
+        public List<RelationshipDto> relationships = new List<RelationshipDto>();
     }
 
     [Serializable]
@@ -21,5 +22,15 @@ namespace MedievalRising.Infrastructure.Persistence
         public int hunger;
         public int energy;
         public long moneyMinorUnits;
+    }
+
+    [Serializable]
+    public sealed class RelationshipDto
+    {
+        public ulong leftCharacterId;
+        public ulong rightCharacterId;
+        public int affection;
+        public int trust;
+        public int respect;
     }
 }

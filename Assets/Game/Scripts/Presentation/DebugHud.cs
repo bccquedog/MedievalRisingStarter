@@ -40,6 +40,25 @@ namespace MedievalRising.Presentation
             CharacterState player = bootstrap.Session.World.GetCharacter(
                 bootstrap.Session.World.PlayerCharacterId);
 
+            string relationshipLine = "No companion nearby";
+            CharacterState mira = null;
+            foreach (CharacterState character in bootstrap.Session.World.Characters)
+            {
+                if (character.Id.Equals(StarterNpcRoster.MiraId))
+                {
+                    mira = character;
+                    break;
+                }
+            }
+
+            if (mira != null)
+            {
+                RelationshipState relationship =
+                    bootstrap.Session.World.GetOrCreateRelationship(player.Id, mira.Id);
+                relationshipLine =
+                    $"{mira.DisplayName}: Aff {relationship.Affection} Trust {relationship.Trust} Respect {relationship.Respect}";
+            }
+
             string interactionLine = interactions == null
                 ? "Interactions unavailable"
                 : $"{interactions.NearestActionHint} | Last: {interactions.LastActionStatus}";
@@ -48,10 +67,11 @@ namespace MedievalRising.Presentation
                 "MEDIEVAL RISING — FOUNDATION BUILD\n" +
                 $"{bootstrap.Session.World.Now}\n" +
                 $"{player.DisplayName} | Hunger {player.Needs.Hunger} | Energy {player.Needs.Energy} | Coin {player.Money}\n" +
+                relationshipLine + "\n" +
                 interactionLine + "\n" +
                 $"Save: {bootstrap.SaveStatus}  |  F5 Save  F9 Load";
 
-            GUI.Box(new Rect(20, 20, 700, 150), text, _style);
+            GUI.Box(new Rect(20, 20, 720, 170), text, _style);
         }
     }
 }

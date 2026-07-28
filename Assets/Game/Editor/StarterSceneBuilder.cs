@@ -49,6 +49,8 @@ namespace MedievalRising.Editor
             GameBootstrap bootstrapComponent = systems.GetComponent<GameBootstrap>();
             systems.AddComponent<DailyLifeInteractionController>().Configure(bootstrapComponent, player.transform);
 
+            CreateNpc(bootstrapComponent);
+
             EditorSceneManager.SaveScene(scene, ScenePath);
             AssetDatabase.SaveAssets();
             Selection.activeGameObject = player;
@@ -134,6 +136,25 @@ namespace MedievalRising.Editor
                 new Vector3(-3.05f, 0.15f, 0f),
                 new Color(0.5f, 0.55f, 0.85f),
                 DailyLifeInteraction2D.ActionKind.Sleep);
+        }
+
+        private static void CreateNpc(GameBootstrap bootstrap)
+        {
+            var npc = new GameObject("Mira Placeholder");
+            npc.transform.position = new Vector3(2.1f, -0.95f, 0f);
+            npc.transform.localScale = new Vector3(0.75f, 1.15f, 1f);
+            npc.AddComponent<SpriteRenderer>();
+            npc.AddComponent<IsometricSpriteSorter>();
+            npc.AddComponent<IsometricPlaceholderVisual>().Configure(new Color(0.2f, 0.45f, 0.7f), false);
+            npc.AddComponent<SocialTalkInteraction2D>().Configure(2, 1.2f);
+            npc.AddComponent<ScheduledNpcView>().Configure(
+                bootstrap,
+                new[]
+                {
+                    new ScheduledNpcView.Waypoint { activityId = "home", position = new Vector2(-3.05f, 0.15f) },
+                    new ScheduledNpcView.Waypoint { activityId = "market", position = new Vector2(2.1f, -0.95f) },
+                    new ScheduledNpcView.Waypoint { activityId = "well", position = new Vector2(0.75f, 1.0f) }
+                });
         }
 
         private static void CreateInteraction(

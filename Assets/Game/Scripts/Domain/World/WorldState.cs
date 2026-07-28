@@ -11,6 +11,9 @@ namespace MedievalRising.Domain.World
         private readonly Dictionary<EntityId, CharacterState> _characters =
             new Dictionary<EntityId, CharacterState>();
 
+        private readonly Dictionary<(ulong, ulong), RelationshipState> _relationships =
+            new Dictionary<(ulong, ulong), RelationshipState>();
+
         public WorldState(GameInstant now, DeterministicRandom random)
         {
             Now = now;
@@ -24,6 +27,9 @@ namespace MedievalRising.Domain.World
         public EntityId PlayerCharacterId { get; private set; }
 
         public IReadOnlyCollection<CharacterState> Characters => _characters.Values;
+
+        public IReadOnlyCollection<KeyValuePair<(ulong, ulong), RelationshipState>> Relationships =>
+            _relationships;
 
         public void SetNow(GameInstant value)
         {
@@ -64,10 +70,48 @@ namespace MedievalRising.Domain.World
             return character;
         }
 
+        public RelationshipState GetOrCreateRelationship(EntityId left, EntityId right)
+        {
+            (ulong, ulong) key = NormalizePair(left, right);
+            if (!_relationships.TryGetValue(key, out RelationshipState relationship))
+            {
+                relationship = new RelationshipState(20, 20, 20);
+                _relationships[key] = relationship;
+            }
+
+            return relationship;
+        }
+
+        public void SetRelationship(EntityId left, EntityId right, RelationshipState relationship)
+        {
+            if (relationship == null)
+            {
+                throw new ArgumentNullException(nameof(relationship));
+            }
+
+            _relationships[NormalizePair(left, right)] = relationship;
+        }
+
         public void RestoreRandomState(ulong state)
         {
             Random = new DeterministicRandom(state);
         }
+
+        private static (ulong, ulong) NormalizePair(EntityId left, EntityId right)
+        {
+            if (left.IsNone || right.IsNone)
+            {
+                throw new ArgumentException("Relationship endpoints cannot be None.");
+            }
+
+            if (left.Value == right.Value)
+            {
+                throw new ArgumentException("A character cannot have a relationship with itself.");
+            }
+
+            return left.Value < right.Value
+                ? (left.Value, right.Value)
+                : (right.Value, left.Value);
+        }
     }
 }
-

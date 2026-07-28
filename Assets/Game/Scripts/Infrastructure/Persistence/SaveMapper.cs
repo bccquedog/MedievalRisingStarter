@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using MedievalRising.Domain.Characters;
 using MedievalRising.Domain.Primitives;
 using MedievalRising.Domain.Time;
@@ -17,6 +18,7 @@ namespace MedievalRising.Infrastructure.Persistence
 
             var dto = new SaveGameDto
             {
+                schemaVersion = 2,
                 totalMinutes = world.Now.TotalMinutes,
                 randomState = world.Random.State,
                 playerCharacterId = world.PlayerCharacterId.Value
@@ -34,7 +36,24 @@ namespace MedievalRising.Infrastructure.Persistence
                 });
             }
 
+            foreach (KeyValuePair<(ulong, ulong), RelationshipState> pair in world.Relationships)
+            {
+                dto.relationships.Add(new RelationshipDto
+                {
+                    leftCharacterId = pair.Key.Item1,
+                    rightCharacterId = pair.Key.Item2,
+                    affection = pair.Value.Affection,
+                    trust = pair.Value.Trust,
+                    respect = pair.Value.Respect
+                });
+            }
+
             dto.characters.Sort((a, b) => a.id.CompareTo(b.id));
+            dto.relationships.Sort((a, b) =>
+            {
+                int left = a.leftCharacterId.CompareTo(b.leftCharacterId);
+                return left != 0 ? left : a.rightCharacterId.CompareTo(b.rightCharacterId);
+            });
             return dto;
         }
 
@@ -45,7 +64,7 @@ namespace MedievalRising.Infrastructure.Persistence
                 throw new ArgumentNullException(nameof(dto));
             }
 
-            if (dto.schemaVersion != 1)
+            if (dto.schemaVersion != 1 && dto.schemaVersion != 2)
             {
                 throw new InvalidOperationException($"Unsupported save schema {dto.schemaVersion}.");
             }
@@ -63,6 +82,20 @@ namespace MedievalRising.Infrastructure.Persistence
                     new Money(character.moneyMinorUnits));
 
                 world.AddCharacter(state, character.id == dto.playerCharacterId);
+            }
+
+            if (dto.schemaVersion >= 2 && dto.relationships != null)
+            {
+                foreach (RelationshipDto relationship in dto.relationships)
+                {
+                    world.SetRelationship(
+                        new EntityId(relationship.leftCharacterId),
+                        new EntityId(relationship.rightCharacterId),
+                        new RelationshipState(
+                            relationship.affection,
+                            relationship.trust,
+                            relationship.respect));
+                }
             }
 
             return world;
