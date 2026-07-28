@@ -2,7 +2,7 @@
   "schema_version": 1,
   "ticket": "MR-004",
   "title": "Scheduled NPC and relationship talk proof",
-  "workflow_state": "CODE_REVIEW",
+  "workflow_state": "VISUAL_QA",
   "implementation_owner": "codex",
   "base_commit": "45fe602",
   "branch": "feature/MR-004-npc-relationship",
@@ -14,7 +14,7 @@
   },
   "visual_qa": {
     "required": true,
-    "status": "accepted",
+    "status": "pending",
     "triggers": [
       "ui",
       "scene_composition",

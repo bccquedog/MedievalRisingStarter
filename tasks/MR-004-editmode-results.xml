@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="27" result="Passed" total="27" passed="27" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-07-28 15:16:15Z" end-time="2026-07-28 15:16:16Z" duration="0.3667632">
+  <test-suite type="TestSuite" id="1000" name="MedievalRisingStarter" fullname="MedievalRisingStarter" runstate="Runnable" testcasecount="27" result="Passed" start-time="2026-07-28 15:16:15Z" end-time="2026-07-28 15:16:16Z" duration="0.366763" total="27" passed="27" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1039" name="MedievalRising.EditModeTests.dll" fullname="/Users/brianproctor/Medivel Rising/MedievalRisingStarter/Library/ScriptAssemblies/MedievalRising.EditModeTests.dll" runstate="Runnable" testcasecount="27" result="Passed" start-time="2026-07-28 15:16:15Z" end-time="2026-07-28 15:16:16Z" duration="0.321739" total="27" passed="27" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="42120" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1040" name="MedievalRising" fullname="MedievalRising" runstate="Runnable" testcasecount="27" result="Passed" start-time="2026-07-28 15:16:15Z" end-time="2026-07-28 15:16:16Z" duration="0.317326" total="27" passed="27" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1041" name="Tests" fullname="MedievalRising.Tests" runstate="Runnable" testcasecount="27" result="Passed" start-time="2026-07-28 15:16:15Z" end-time="2026-07-28 15:16:16Z" duration="0.316288" total="27" passed="27" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1001" name="DailyLifeActionTests" fullname="MedievalRising.Tests.DailyLifeActionTests" classname="MedievalRising.Tests.DailyLifeActionTests" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-07-28 15:16:15Z" end-time="2026-07-28 15:16:15Z" duration="0.179883" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1007" name="BuyMeal_FailsWithoutEnoughCoin" fullname="MedievalRising.Tests.DailyLifeActionTests.BuyMeal_FailsWithoutEnoughCoin" methodname="BuyMeal_FailsWithoutEnoughCoin" classname="MedievalRising.Tests.DailyLifeActionTests" runstate="Runnable" seed="860883788" result="Passed" start-time="2026-07-28 15:16:15Z" end-time="2026-07-28 15:16:15Z" duration="0.084631" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1006" name="BuyMeal_SubtractsPriceAndEats" fullname="MedievalRising.Tests.DailyLifeActionTests.BuyMeal_SubtractsPriceAndEats" methodname="BuyMeal_SubtractsPriceAndEats" classname="MedievalRising.Tests.DailyLifeActionTests" runstate="Runnable" seed="585788366" result="Passed" start-time="2026-07-28 15:16:15Z" end-time="2026-07-28 15:16:15Z" duration="0.008910" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1003" name="EatMeal_FailsWhenAlreadyFull" fullname="MedievalRising.Tests.DailyLifeActionTests.EatMeal_FailsWhenAlreadyFull" methodname="EatMeal_FailsWhenAlreadyFull" classname="MedievalRising.Tests.DailyLifeActionTests" runstate="Runnable" seed="1307427749" result="Passed" start-time="2026-07-28 15:16:15Z" end-time="2026-07-28 15:16:15Z" duration="0.002270" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1002" name="EatMeal_RestoresHungerAndAdvancesTime" fullname="MedievalRising.Tests.DailyLifeActionTests.EatMeal_RestoresHungerAndAdvancesTime" methodname="EatMeal_RestoresHungerAndAdvancesTime" classname="MedievalRising.Tests.DailyLifeActionTests" runstate="Runnable" seed="170741383" result="Passed" start-time="2026-07-28 15:16:15Z" end-time="2026-07-28 15:16:15Z" duration="0.018411" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1009" name="Sleep_FailsWhenNotTired" fullname="MedievalRising.Tests.DailyLifeActionTests.Sleep_FailsWhenNotTired" methodname="Sleep_FailsWhenNotTired" classname="MedievalRising.Tests.DailyLifeActionTests" runstate="Runnable" seed="492444470" result="Passed" start-time="2026-07-28 15:16:15Z" end-time="2026-07-28 15:16:15Z" duration="0.002365" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1008" name="Sleep_RestoresEnergyAndAdvancesEightHours" fullname="MedievalRising.Tests.DailyLifeActionTests.Sleep_RestoresEnergyAndAdvancesEightHours" methodname="Sleep_RestoresEnergyAndAdvancesEightHours" classname="MedievalRising.Tests.DailyLifeActionTests" runstate="Runnable" seed="1789723715" result="Passed" start-time="2026-07-28 15:16:15Z" end-time="2026-07-28 15:16:15Z" duration="0.004066" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1005" name="WorkFarmingShift_FailsWhenExhausted" fullname="MedievalRising.Tests.DailyLifeActionTests.WorkFarmingShift_FailsWhenExhausted" methodname="WorkFarmingShift_FailsWhenExhausted" classname="MedievalRising.Tests.DailyLifeActionTests" runstate="Runnable" seed="1751955478" result="Passed" start-time="2026-07-28 15:16:15Z" end-time="2026-07-28 15:16:15Z" duration="0.001774" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1004" name="WorkFarmingShift_PaysWageAndCostsNeeds" fullname="MedievalRising.Tests.DailyLifeActionTests.WorkFarmingShift_PaysWageAndCostsNeeds" methodname="WorkFarmingShift_PaysWageAndCostsNeeds" classname="MedievalRising.Tests.DailyLifeActionTests" runstate="Runnable" seed="823948247" result="Passed" start-time="2026-07-28 15:16:15Z" end-time="2026-07-28 15:16:15Z" duration="0.001640" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1010" name="GameInstantTests" fullname="MedievalRising.Tests.GameInstantTests" classname="MedievalRising.Tests.GameInstantTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-07-28 15:16:15Z" end-time="2026-07-28 15:16:15Z" duration="0.004891" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1011" name="AddMinutes_CrossesDayBoundaryDeterministically" fullname="MedievalRising.Tests.GameInstantTests.AddMinutes_CrossesDayBoundaryDeterministically" methodname="AddMinutes_CrossesDayBoundaryDeterministically" classname="MedievalRising.Tests.GameInstantTests" runstate="Runnable" seed="579717142" result="Passed" start-time="2026-07-28 15:16:15Z" end-time="2026-07-28 15:16:15Z" duration="0.001259" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1012" name="IsometricCameraTests" fullname="MedievalRising.Tests.IsometricCameraTests" classname="MedievalRising.Tests.IsometricCameraTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-07-28 15:16:15Z" end-time="2026-07-28 15:16:15Z" duration="0.006701" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1014" name="ClampPosition_AppliesFollowOffsetBeforeClamping" fullname="MedievalRising.Tests.IsometricCameraTests.ClampPosition_AppliesFollowOffsetBeforeClamping" methodname="ClampPosition_AppliesFollowOffsetBeforeClamping" classname="MedievalRising.Tests.IsometricCameraTests" runstate="Runnable" seed="199148409" result="Passed" start-time="2026-07-28 15:16:15Z" end-time="2026-07-28 15:16:15Z" duration="0.004134" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1013" name="ClampPosition_KeepsCameraInsideVillageBounds" fullname="MedievalRising.Tests.IsometricCameraTests.ClampPosition_KeepsCameraInsideVillageBounds" methodname="ClampPosition_KeepsCameraInsideVillageBounds" classname="MedievalRising.Tests.IsometricCameraTests" runstate="Runnable" seed="1623946393" result="Passed" start-time="2026-07-28 15:16:15Z" end-time="2026-07-28 15:16:15Z" duration="0.000848" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1015" name="IsometricMovementTests" fullname="MedievalRising.Tests.IsometricMovementTests" classname="MedievalRising.Tests.IsometricMovementTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-07-28 15:16:15Z" end-time="2026-07-28 15:16:15Z" duration="0.015468" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1016" name="Resolve_ClampsToVillageBounds" fullname="MedievalRising.Tests.IsometricMovementTests.Resolve_ClampsToVillageBounds" methodname="Resolve_ClampsToVillageBounds" classname="MedievalRising.Tests.IsometricMovementTests" runstate="Runnable" seed="1549448637" result="Passed" start-time="2026-07-28 15:16:15Z" end-time="2026-07-28 15:16:15Z" duration="0.005676" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1017" name="Resolve_SlidesAlongOpenAxisWhenDiagonalTargetIsBlocked" fullname="MedievalRising.Tests.IsometricMovementTests.Resolve_SlidesAlongOpenAxisWhenDiagonalTargetIsBlocked" methodname="Resolve_SlidesAlongOpenAxisWhenDiagonalTargetIsBlocked" classname="MedievalRising.Tests.IsometricMovementTests" runstate="Runnable" seed="467028906" result="Passed" start-time="2026-07-28 15:16:15Z" end-time="2026-07-28 15:16:15Z" duration="0.005488" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1018" name="Resolve_StaysPutWhenAllCandidateMovesAreBlocked" fullname="MedievalRising.Tests.IsometricMovementTests.Resolve_StaysPutWhenAllCandidateMovesAreBlocked" methodname="Resolve_StaysPutWhenAllCandidateMovesAreBlocked" classname="MedievalRising.Tests.IsometricMovementTests" runstate="Runnable" seed="1602903641" result="Passed" start-time="2026-07-28 15:16:15Z" end-time="2026-07-28 15:16:15Z" duration="0.001335" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1019" name="NpcScheduleTests" fullname="MedievalRising.Tests.NpcScheduleTests" classname="MedievalRising.Tests.NpcScheduleTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-07-28 15:16:15Z" end-time="2026-07-28 15:16:15Z" duration="0.006414" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1021" name="ResolveActivity_BeforeFirstEntry_WrapsToLastActivity" fullname="MedievalRising.Tests.NpcScheduleTests.ResolveActivity_BeforeFirstEntry_WrapsToLastActivity" methodname="ResolveActivity_BeforeFirstEntry_WrapsToLastActivity" classname="MedievalRising.Tests.NpcScheduleTests" runstate="Runnable" seed="464489091" result="Passed" start-time="2026-07-28 15:16:15Z" end-time="2026-07-28 15:16:15Z" duration="0.003379" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1020" name="ResolveActivity_UsesLatestStartedEntryForHour" fullname="MedievalRising.Tests.NpcScheduleTests.ResolveActivity_UsesLatestStartedEntryForHour" methodname="ResolveActivity_UsesLatestStartedEntryForHour" classname="MedievalRising.Tests.NpcScheduleTests" runstate="Runnable" seed="1875922456" result="Passed" start-time="2026-07-28 15:16:15Z" end-time="2026-07-28 15:16:15Z" duration="0.001203" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1022" name="RelationshipSaveTests" fullname="MedievalRising.Tests.RelationshipSaveTests" classname="MedievalRising.Tests.RelationshipSaveTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-07-28 15:16:15Z" end-time="2026-07-28 15:16:15Z" duration="0.018144" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1024" name="SchemaV1_StillLoadsWithoutRelationships" fullname="MedievalRising.Tests.RelationshipSaveTests.SchemaV1_StillLoadsWithoutRelationships" methodname="SchemaV1_StillLoadsWithoutRelationships" classname="MedievalRising.Tests.RelationshipSaveTests" runstate="Runnable" seed="1650716841" result="Passed" start-time="2026-07-28 15:16:15Z" end-time="2026-07-28 15:16:15Z" duration="0.004829" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1023" name="SchemaV2_RoundTripsRelationships" fullname="MedievalRising.Tests.RelationshipSaveTests.SchemaV2_RoundTripsRelationships" methodname="SchemaV2_RoundTripsRelationships" classname="MedievalRising.Tests.RelationshipSaveTests" runstate="Runnable" seed="998443199" result="Passed" start-time="2026-07-28 15:16:15Z" end-time="2026-07-28 15:16:15Z" duration="0.011946" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1025" name="SaveMapperTests" fullname="MedievalRising.Tests.SaveMapperTests" classname="MedievalRising.Tests.SaveMapperTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-07-28 15:16:15Z" end-time="2026-07-28 15:16:15Z" duration="0.005920" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1026" name="RoundTrip_PreservesAuthoritativeFoundationState" fullname="MedievalRising.Tests.SaveMapperTests.RoundTrip_PreservesAuthoritativeFoundationState" methodname="RoundTrip_PreservesAuthoritativeFoundationState" classname="MedievalRising.Tests.SaveMapperTests" runstate="Runnable" seed="1612666096" result="Passed" start-time="2026-07-28 15:16:15Z" end-time="2026-07-28 15:16:15Z" duration="0.004468" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1027" name="SaveServiceTests" fullname="MedievalRising.Tests.SaveServiceTests" classname="MedievalRising.Tests.SaveServiceTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-07-28 15:16:15Z" end-time="2026-07-28 15:16:16Z" duration="0.050804" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1028" name="SaveLoad_RoundTripsWorldThroughLocalRepository" fullname="MedievalRising.Tests.SaveServiceTests.SaveLoad_RoundTripsWorldThroughLocalRepository" methodname="SaveLoad_RoundTripsWorldThroughLocalRepository" classname="MedievalRising.Tests.SaveServiceTests" runstate="Runnable" seed="1663568967" result="Passed" start-time="2026-07-28 15:16:15Z" end-time="2026-07-28 15:16:16Z" duration="0.049707" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1029" name="SimulationEngineTests" fullname="MedievalRising.Tests.SimulationEngineTests" classname="MedievalRising.Tests.SimulationEngineTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-07-28 15:16:16Z" end-time="2026-07-28 15:16:16Z" duration="0.007921" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1030" name="Advance_OneHour_DecaysNeedsOnce" fullname="MedievalRising.Tests.SimulationEngineTests.Advance_OneHour_DecaysNeedsOnce" methodname="Advance_OneHour_DecaysNeedsOnce" classname="MedievalRising.Tests.SimulationEngineTests" runstate="Runnable" seed="287411641" result="Passed" start-time="2026-07-28 15:16:16Z" end-time="2026-07-28 15:16:16Z" duration="0.001261" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1031" name="Systems_RunByPhaseThenStableId" fullname="MedievalRising.Tests.SimulationEngineTests.Systems_RunByPhaseThenStableId" methodname="Systems_RunByPhaseThenStableId" classname="MedievalRising.Tests.SimulationEngineTests" runstate="Runnable" seed="1670934075" result="Passed" start-time="2026-07-28 15:16:16Z" end-time="2026-07-28 15:16:16Z" duration="0.005120" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1032" name="SocialTalkTests" fullname="MedievalRising.Tests.SocialTalkTests" classname="MedievalRising.Tests.SocialTalkTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-07-28 15:16:16Z" end-time="2026-07-28 15:16:16Z" duration="0.008533" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1034" name="TalkTo_FailsForSelf" fullname="MedievalRising.Tests.SocialTalkTests.TalkTo_FailsForSelf" methodname="TalkTo_FailsForSelf" classname="MedievalRising.Tests.SocialTalkTests" runstate="Runnable" seed="873993434" result="Passed" start-time="2026-07-28 15:16:16Z" end-time="2026-07-28 15:16:16Z" duration="0.001063" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1035" name="TalkTo_MutatesOnlyIntendedPair" fullname="MedievalRising.Tests.SocialTalkTests.TalkTo_MutatesOnlyIntendedPair" methodname="TalkTo_MutatesOnlyIntendedPair" classname="MedievalRising.Tests.SocialTalkTests" runstate="Runnable" seed="1374570276" result="Passed" start-time="2026-07-28 15:16:16Z" end-time="2026-07-28 15:16:16Z" duration="0.003232" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1033" name="TalkTo_RaisesRelationshipAndAdvancesTime" fullname="MedievalRising.Tests.SocialTalkTests.TalkTo_RaisesRelationshipAndAdvancesTime" methodname="TalkTo_RaisesRelationshipAndAdvancesTime" classname="MedievalRising.Tests.SocialTalkTests" runstate="Runnable" seed="92397557" result="Passed" start-time="2026-07-28 15:16:16Z" end-time="2026-07-28 15:16:16Z" duration="0.002464" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1036" name="SpriteSortingTests" fullname="MedievalRising.Tests.SpriteSortingTests" classname="MedievalRising.Tests.SpriteSortingTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-07-28 15:16:16Z" end-time="2026-07-28 15:16:16Z" duration="0.004145" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1038" name="CalculateOrder_AppliesOffset" fullname="MedievalRising.Tests.SpriteSortingTests.CalculateOrder_AppliesOffset" methodname="CalculateOrder_AppliesOffset" classname="MedievalRising.Tests.SpriteSortingTests" runstate="Runnable" seed="334788579" result="Passed" start-time="2026-07-28 15:16:16Z" end-time="2026-07-28 15:16:16Z" duration="0.000313" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1037" name="CalculateOrder_LowerWorldYSortsInFront" fullname="MedievalRising.Tests.SpriteSortingTests.CalculateOrder_LowerWorldYSortsInFront" methodname="CalculateOrder_LowerWorldYSortsInFront" classname="MedievalRising.Tests.SpriteSortingTests" runstate="Runnable" seed="1043699890" result="Passed" start-time="2026-07-28 15:16:16Z" end-time="2026-07-28 15:16:16Z" duration="0.002423" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Saving results to: /Users/brianproctor/Library/Application Support/DefaultCompany/MedievalRisingStarter/TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
