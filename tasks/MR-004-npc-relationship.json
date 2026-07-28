@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "ticket": "MR-004",
+  "title": "Scheduled NPC and relationship talk proof",
+  "workflow_state": "CODE_REVIEW",
+  "implementation_owner": "codex",
+  "base_commit": "45fe602",
+  "branch": "feature/MR-004-npc-relationship",
+  "architecture_review": {
+    "required": true,
+    "status": "accepted",
+    "adr": "docs/adr/ADR-004-relationships-and-schema-v2.md",
+    "rationale": "Adds relationship state ownership and an additive save schema version with backward-compatible v1 load."
+  },
+  "visual_qa": {
+    "required": true,
+    "status": "accepted",
+    "triggers": [
+      "ui",
+      "scene_composition",
+      "input_feedback",
+      "sprite_sorting"
+    ]
+  },
+  "allowed_paths": [
+    "tasks/MR-004-npc-relationship.json",
+    "tasks/MR-004-transfer-packet.md",
+    "tasks/MR-004-claude-review.md",
+    "tasks/MR-004-kimi-visual-qa.md",
+    "docs/adr/ADR-004-relationships-and-schema-v2.md",
+    "Assets/Game/Editor/",
+    "Assets/Game/Scenes/",
+    "Assets/Game/Scripts/Application/",
+    "Assets/Game/Scripts/Domain/",
+    "Assets/Game/Scripts/Infrastructure/Persistence/",
+    "Assets/Game/Scripts/Presentation/",
+    "Assets/Game/Tests/EditMode/"
+  ],
+  "exclusive_locks": [
+    "Assets/Game/Scenes/StarterVillage.unity",
+    "Assets/Game/Scripts/Infrastructure/Persistence/SaveGameDto.cs"
+  ],
+  "player_outcome": "One named NPC follows a simple daily schedule and the player can talk to them to raise affection, trust, and respect.",
+  "acceptance_criteria": [
+    "A named NPC exists in world state with a stable entity ID.",
+    "The NPC presentation follows a schedule keyed by hour of day.",
+    "Talking to the NPC advances time and raises affection, trust, and respect.",
+    "Relationship state survives save/load through schema version 2.",
+    "Schema version 1 saves still load without relationships.",
+    "EditMode tests cover schedule resolution, talk results, and relationship save round-trip."
+  ],
+  "required_tests": [
+    "NpcScheduleTests",
+    "SocialTalkTests",
+    "RelationshipSaveTests",
+    "Existing EditMode suite"
+  ],
+  "save_impact": "schema version 2 additive relationships; v1 remains loadable",
+  "next_agent": "claude",
+  "requested_next_state": "CODE_REVIEW"
+}

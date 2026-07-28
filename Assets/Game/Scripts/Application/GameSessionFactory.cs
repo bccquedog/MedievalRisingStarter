@@ -18,6 +18,15 @@ namespace MedievalRising.Application
                 new Money(250));
 
             world.AddCharacter(founder, true);
+
+            var mira = new CharacterState(
+                StarterNpcRoster.MiraId,
+                "Mira",
+                new NeedsState(100, 100),
+                new Money(400));
+            world.AddCharacter(mira);
+            world.GetOrCreateRelationship(founder.Id, mira.Id);
+
             return CreateFromWorld(world);
         }
 
