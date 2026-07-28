@@ -2,7 +2,7 @@
   "schema_version": 1,
   "ticket": "MR-002",
   "title": "Isometric movement and starter village proof",
-  "workflow_state": "READY_FOR_IMPLEMENTATION",
+  "workflow_state": "VISUAL_QA",
   "implementation_owner": "codex",
   "base_commit": "c77e8e5",
   "branch": "main",
@@ -13,7 +13,7 @@
   },
   "visual_qa": {
     "required": true,
-    "status": "pending",
+    "status": "accepted",
     "triggers": [
       "camera",
       "sprite_sorting",
