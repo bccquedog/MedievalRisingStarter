@@ -46,6 +46,9 @@ namespace MedievalRising.Editor
 
             cameraObject.AddComponent<IsometricCameraFollow2D>().Configure(player.transform, WorldBounds);
 
+            GameBootstrap bootstrapComponent = systems.GetComponent<GameBootstrap>();
+            systems.AddComponent<DailyLifeInteractionController>().Configure(bootstrapComponent, player.transform);
+
             EditorSceneManager.SaveScene(scene, ScenePath);
             AssetDatabase.SaveAssets();
             Selection.activeGameObject = player;
@@ -110,6 +113,42 @@ namespace MedievalRising.Editor
                 false,
                 true,
                 new Vector2(0.9f, 0.9f));
+
+            CreateInteraction(
+                "Eat At Cottage Table",
+                new Vector3(-1.45f, 0.05f, 0f),
+                new Color(0.85f, 0.65f, 0.35f),
+                DailyLifeInteraction2D.ActionKind.Eat);
+            CreateInteraction(
+                "Work Farm Plot",
+                new Vector3(3.6f, 1.6f, 0f),
+                new Color(0.4f, 0.65f, 0.25f),
+                DailyLifeInteraction2D.ActionKind.Work);
+            CreateInteraction(
+                "Buy Meal At Market Stall",
+                new Vector3(2.1f, -0.95f, 0f),
+                new Color(0.9f, 0.75f, 0.2f),
+                DailyLifeInteraction2D.ActionKind.BuyMeal);
+            CreateInteraction(
+                "Sleep In Cottage Bed",
+                new Vector3(-3.05f, 0.15f, 0f),
+                new Color(0.5f, 0.55f, 0.85f),
+                DailyLifeInteraction2D.ActionKind.Sleep);
+        }
+
+        private static void CreateInteraction(
+            string name,
+            Vector3 position,
+            Color color,
+            DailyLifeInteraction2D.ActionKind action)
+        {
+            var marker = new GameObject(name);
+            marker.transform.position = position;
+            marker.transform.localScale = new Vector3(0.35f, 0.35f, 1f);
+            marker.AddComponent<SpriteRenderer>();
+            marker.AddComponent<IsometricSpriteSorter>();
+            marker.AddComponent<IsometricPlaceholderVisual>().Configure(color, true);
+            marker.AddComponent<DailyLifeInteraction2D>().Configure(action, 1.1f);
         }
 
         private static void CreateVisual(

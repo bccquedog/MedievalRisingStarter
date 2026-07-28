@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "ticket": "MR-003",
+  "title": "Daily-life proof: eat, work, shop, sleep loop",
+  "workflow_state": "READY_FOR_IMPLEMENTATION",
+  "implementation_owner": "codex",
+  "base_commit": "af5aa6a",
+  "branch": "main",
+  "architecture_review": {
+    "required": true,
+    "status": "accepted",
+    "adr": "docs/ARCHITECTURE.md",
+    "rationale": "Touches economy and character state ownership, but stays additive inside existing application/domain boundaries with no save-schema change."
+  },
+  "visual_qa": {
+    "required": true,
+    "status": "pending",
+    "triggers": [
+      "ui",
+      "scene_composition",
+      "input_feedback"
+    ]
+  },
+  "allowed_paths": [
+    "tasks/MR-003-daily-life-proof.json",
+    "Assets/Game/Editor/",
+    "Assets/Game/Scenes/",
+    "Assets/Game/Scripts/Application/",
+    "Assets/Game/Scripts/Domain/",
+    "Assets/Game/Scripts/Presentation/",
+    "Assets/Game/Tests/EditMode/"
+  ],
+  "exclusive_locks": [
+    "Assets/Game/Scenes/StarterVillage.unity"
+  ],
+  "player_outcome": "The founder can complete one working day: eat a meal, work a farming shift for wages, buy food at the market stall, and sleep to restore energy, with each action advancing time and updating needs and money.",
+  "acceptance_criteria": [
+    "Eat restores hunger and advances time.",
+    "Work advances a shift duration, costs energy and hunger, and pays a fixed wage.",
+    "Shop buys a food item at a fixed price, subtracting money and granting the item or immediate meal.",
+    "Sleep advances several hours, restores energy, and costs hunger.",
+    "Each action reports success or failure (for example insufficient money or energy) through a clear result.",
+    "No changes to save schema version; money and needs already serialize through the existing DTO.",
+    "EditMode tests cover each action and its failure conditions."
+  ],
+  "required_tests": [
+    "DailyLifeActionTests",
+    "Existing EditMode suite"
+  ],
+  "save_impact": "none; existing schema version 1 covers money, hunger, and energy",
+  "next_agent": "kimi",
+  "requested_next_state": "VISUAL_QA"
+}

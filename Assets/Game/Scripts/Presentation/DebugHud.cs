@@ -6,6 +6,7 @@ namespace MedievalRising.Presentation
     public sealed class DebugHud : MonoBehaviour
     {
         [SerializeField] private GameBootstrap bootstrap;
+        [SerializeField] private DailyLifeInteractionController interactions;
 
         private GUIStyle _style;
 
@@ -14,6 +15,11 @@ namespace MedievalRising.Presentation
             if (bootstrap == null)
             {
                 bootstrap = FindFirstObjectByType<GameBootstrap>();
+            }
+
+            if (interactions == null)
+            {
+                interactions = FindFirstObjectByType<DailyLifeInteractionController>();
             }
         }
 
@@ -34,14 +40,18 @@ namespace MedievalRising.Presentation
             CharacterState player = bootstrap.Session.World.GetCharacter(
                 bootstrap.Session.World.PlayerCharacterId);
 
+            string interactionLine = interactions == null
+                ? "Interactions unavailable"
+                : $"{interactions.NearestActionHint} | Last: {interactions.LastActionStatus}";
+
             string text =
                 "MEDIEVAL RISING — FOUNDATION BUILD\n" +
                 $"{bootstrap.Session.World.Now}\n" +
-                $"{player.DisplayName} | Hunger {player.Needs.Hunger} | Energy {player.Needs.Energy}\n" +
-                $"Save: {bootstrap.SaveStatus}  |  F5 Save  F9 Load\n" +
-                "Workflow: ticket → architecture gate → implementation → tests → visual QA";
+                $"{player.DisplayName} | Hunger {player.Needs.Hunger} | Energy {player.Needs.Energy} | Coin {player.Money}\n" +
+                interactionLine + "\n" +
+                $"Save: {bootstrap.SaveStatus}  |  F5 Save  F9 Load";
 
-            GUI.Box(new Rect(20, 20, 650, 130), text, _style);
+            GUI.Box(new Rect(20, 20, 700, 150), text, _style);
         }
     }
 }
