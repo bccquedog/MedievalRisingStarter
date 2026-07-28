@@ -1,11 +1,11 @@
-# TRANSFER — MR-004 — Codex to Claude
+# TRANSFER — MR-004 — Codex to Kimi
 
 ## Identity
 
 - Base commit: `45fe602`
-- Current commit: pending before PR
-- Branch/worktree: `feature/MR-004-npc-relationship`
-- Current workflow state: `CODE_REVIEW`
+- Current commit: pending (post-review fixes)
+- Branch/worktree: `main`
+- Current workflow state: `VISUAL_QA`
 - Requested workflow state: `VISUAL_QA`
 
 ## Authority
@@ -17,12 +17,13 @@
 
 ## Completed outcome
 
-- Player-visible: Mira follows a daily schedule and can be talked to with `E`.
-- Technical: Relationship state lives on `WorldState` and persists through save schema v2.
+- Player-visible: Mira follows a daily schedule and can be talked to with `E`; relationship values (affection/trust/respect) update and display on DebugHud.
+- Technical: Relationship state lives on `WorldState` and persists through save schema v2; backward-compatible with v1 saves.
 
 ## Evidence
 
-- Tests: EditMode suite including `NpcScheduleTests`, `SocialTalkTests`, `RelationshipSaveTests`
+- Tests: EditMode suite 27/27 passed — `tasks/MR-004-editmode-results.xml`
+- Review: Claude architecture/code review findings (F1, F2, F5) resolved — `tasks/MR-004-claude-review.md`
 - Build: Unity batchmode EditMode run
 - Screenshots/video/logs: pending Kimi visual QA
 
@@ -31,7 +32,7 @@
 - Blockers: none
 - Accepted limitations: schedule waypoints are presentation config, not save state
 - Decisions: schema v2 additive relationships; v1 remains loadable
-- Findings: admin direct pushes previously bypassed branch protection; this ticket uses a PR
+- Findings: admin direct pushes previously bypassed branch protection; MR-004 merged via PR #1
 
 ## Compatibility
 
@@ -42,4 +43,4 @@
 
 ## Requested next action
 
-Review architecture and save-boundary correctness, then hand to Kimi for visual QA.
+Perform visual QA on Mira NPC schedule movement, talk interaction feedback, and relationship HUD display.

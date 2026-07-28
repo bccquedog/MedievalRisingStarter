@@ -10,7 +10,7 @@ The daily-life proof needs one persistent NPC and one relationship interaction. 
 
 ## Decision
 
-1. Store directed pairwise relationships as domain state on `WorldState`.
+1. Store undirected pairwise relationships as domain state on `WorldState`.
 2. Persist them in save schema version 2 as additive relationship DTOs.
 3. Keep schema version 1 loadable: missing relationships initialize empty.
 4. Keep NPC schedule content as presentation/application configuration keyed by hour of day; schedule waypoints are not save state in this proof.
@@ -23,6 +23,7 @@ The daily-life proof needs one persistent NPC and one relationship interaction. 
 ## Consequences
 
 - SaveMapper and SaveGameDto own an exclusive lock for this change.
+- Directed feelings require a future save-schema version.
 - Future relationship systems must migrate through schema versions.
 
 ## Verification

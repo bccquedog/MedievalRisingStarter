@@ -44,7 +44,7 @@ namespace MedievalRising.Domain.Characters
                 throw new ArgumentOutOfRangeException(nameof(hourOfDay));
             }
 
-            string activity = _entries[0].ActivityId;
+            string activity = _entries[_entries.Count - 1].ActivityId;
             for (int index = 0; index < _entries.Count; index++)
             {
                 if (_entries[index].StartHour <= hourOfDay)
